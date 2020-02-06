@@ -21,6 +21,6 @@ while True:
     t = datetime.datetime.now()
     strNow = t.strftime('%Y/%m/%d-%H:%M:%S')
     data = conn.recv(1024)
-    conn.send(host_name + " / " + host_ip + "\n")
+    conn.send(bytes(host_name + " / " + host_ip + "\n", 'utf-8'))
     conn.close()
     print('{} Connect {} {} bytes'.format(strNow, addr, len(data)))
